@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AlpineJS -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Title -->
+    <title>Home | PT. Sejahtera Perkara Energi</title>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                Biru: '#256293',
+                Kuning: '#ffd25c',
+                Hijau: '#b2fc68',
+              }
+            }
+          }
+        }
+      </script>
+
+      <!-- Hero Section Background Image -->
+      <style>
+        .bg-hero {
+            background-image: url('./assets/img/bg-hero.png');
+            background-size: cover;
+            background-position: center;
+            border-bottom-left-radius: 15rem; /* Adjust as needed for lg size */
+        }
+
+        .bg-footer {
+            background-image: url('./assets/img/footer.png'); 
+            border-top-right-radius: 15rem;
+        }
+
+        @media (max-width: 1024px) {
+            .bg-hero {
+                border-bottom-left-radius: 0;
+            }
+
+            .bg-footer {
+                border-top-right-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav x-data="{ isOpen: false }" class="fixed top-0 left-0 z-50 w-full bg-Biru">
+        <div class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+            <div class="flex items-center justify-between">
+                <a href="#">
+                    <img class="w-auto h-14 md:h-16 lg:h-18" src="./assets/img/Logo.png" alt="">
+                </a>
+    
+                <!-- Mobile menu button -->
+                <div class="flex lg:hidden">
+                    <button x-cloak @click="isOpen = !isOpen" type="button" class="text-white focus:outline-none md:hidden" aria-label="toggle menu">
+                        <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+                        </svg>
+                
+                        <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+            <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-Biru md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center">
+                <div class="flex flex-col md:flex-row md:mx-6">
+                    <a class="my-2 text-white hover:border-b hover:border-white md:mx-4 md:my-0 font-semibold" href="index.html">Home</a>
+                    <a class="my-2 text-white hover:border-b hover:border-white md:mx-4 md:my-0 font-semibold" href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-hero">
+        <div class="items-center lg:flex container mx-auto pt-32">
+            <div class="w-11/12 mx-auto md:w-full lg:w-1/2">
+                <div class="lg:max-w-lg md:w-11/12 md:mx-auto lg:w-full lg:ml-5">
+                    <h1 class="text-3xl font-extrabold text-white lg:text-6xl hidden md:hidden lg:block">
+                        PT SEJAHTERA <br> PERKASA ENERGI
+                    </h1>
+                    <h1 class="text-3xl font-extrabold text-white lg:text-6xl lg:hidden">
+                        PT SEJAHTERA PERKASA ENERGI
+                    </h1>
+                    
+                    <p class="mt-3 text-white">
+                        PT. Sejahtera Perkasa Energi is a company engaged in the trading of industrial fuel oil. Established since January 2, 2020, the company holds a license for wholesale trading of solid, liquid, gas fuels, and related products. We serve customers across South Sumatra Province, working to meet their set targets to ensure operational performance.
+                    </p>
+                    
+                    <div class="flex items-center gap-10 mt-10">
+                        <a href="#contact">
+                            <button class="lg:w-auto px-5 py-2 text-lg md:text-2xl tracking-wider text-black transition-colors duration-300 transform bg-Kuning rounded-full font-semibold">
+                                Contact Us
+                            </button>
+                        </a>
+                        
+                        <a href="#stakeholder" class="flex items-center text-white gap-2 text-md md:text-xl">
+                            <span>
+                                Explore More
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                            </svg>                                  
+                        </a>
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
+                <img class="w-5/6 h-5/6 lg:max-w-3xl rounded-t-full" src="./assets/img/hero-img.png" alt="Hero Image">
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="container px-6 py-16 mx-auto">
+        <div class="items-center lg:flex gap-20">
+            <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4 mt-6 lg:mt-0">
+                <div class="md:mt-24">
+                    <img class="w-full h-[250px] object-cover rounded-lg mb-5" src="./assets/img/about1.jpg" alt="about1">
+                    <img class="w-full h-[250px] object-cover rounded-lg" src="./assets/img/about2.jpg" alt="about2">
+                </div>
+                <div class="md:mb-24">
+                    <img class="w-full h-[250px] object-cover rounded-lg mb-5" src="./assets/img/about3.png" alt="about3">
+                    <img class="w-full h-[250px] object-cover rounded-lg" src="./assets/img/hero-img.png" alt="about4">
+                </div>
+            </div>       
+
+            <div class="w-full lg:w-1/2 mt-6 lg:mt-0">
+                <div class="lg:max-w-lg">
+                    <h1 class="text-3xl font-semibold text-black lg:text-4xl">
+                        Vision
+                    </h1>
+                    
+                    <p class="mt-3 text-black text-xl">
+                        Become a recognized supplier of fuel oil, known for its integrity by all our customers, and advance as a company.
+                    </p>
+                </div>
+                
+                <div class="lg:max-w-lg mt-10">
+                    <h1 class="text-3xl font-semibold text-black lg:text-4xl">
+                        Mision
+                    </h1>
+                    
+                    <p class="mt-3 text-xl text-black flex items-center">
+                        <span class="rounded-full bg-Kuning text-black rounded-full px-5 mr-5 flex items-center h-12">1</span>
+                        Fulfill all solar fuel needs through land, sea, and bunker transportation for industries with professional services.
+                    </p>
+                    <p class="mt-3 text-xl text-black flex items-center">
+                        <span class="rounded-full bg-Kuning text-black rounded-full px-5 mr-5 flex items-center h-12">2</span>
+                        Commit to customer satisfaction by maintaining quality and timely delivery.
+                    </p>
+                    <p class="mt-3 text-xl text-black flex items-center">
+                        <span class="rounded-full bg-Kuning text-black rounded-full px-5 mr-5 flex items-center h-12">3</span>
+                        Simplify transactions for customers through effective communication.
+                    </p>
+                    <p class="mt-3 text-xl text-black flex items-center">
+                        <span class="rounded-full bg-Kuning text-black rounded-full px-5 mr-5 flex items-center h-12">4</span>
+                        Foster good relationships with distributors and all business partners.
+                    </p>
+                    <p class="mt-3 text-xl text-black flex items-center">
+                        <span class="rounded-full bg-Kuning text-black rounded-full px-5 mr-5 flex items-center h-12">5</span>
+                        Commit to continuously improving the competency and welfare of human resources.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stakeholder Section -->
+    <div class="container mx-auto my-20" id="stakeholder">
+        <div class="flex justify-center">
+            <div class="w-full lg:w-4/5 sm:w-11/12 md:w-11/12">
+                <div class="bg-gray-100 rounded-lg p-5 md:p-6 lg:p-20">
+                    <!-- Left Section -->
+                    <div class="flex flex-col lg:flex-row justify-between items-center lg:w-4/5 mx-auto">
+                        <div>
+                            <p class="mb-10 text-xl">Board of</p>
+                            <p class="text-2xl lg:text-4xl font-bold text-gray-800 lg:mr-4 mb-4 lg:mb-0">Directors and Shareholders</p>
+                            <p class="font-normal mt-10 w-4/5">"The company PT Sejahtera will become a major oil company with the support of the right people in their respective fields."</p>
+                        </div>
+                        <!-- Right Section -->
+                        <div class="lg:flex lg:flex-col justify-between lg:w-1/2">
+                            <!-- Top Card -->
+                            <div class="w-full lg:mb-4 md:mt-10 md:mr-10 lg:mt-0 lg:mr-0 my-10 lg:my-0">
+                                <div class="bg-white rounded-lg p-4 flex items-center shadow md:w-[300px] lg:w-full">
+                                    <div class="p-2 bg-Kuning rounded-full">
+                                        <img src="./assets/img/face-icon.png" alt="person" class="rounded-full">
+                                    </div>
+                                    <div class="w-2/3 pl-4">
+                                        <p class="font-semibold">Medius Susanto</p>
+                                        <p class="text-gray-600">Director</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Bottom Card -->
+                            <div class="w-full md:mt-10 lg:mt-0">
+                                <div class="bg-white rounded-lg p-4 flex items-center shadow md:w-[300px] lg:w-full">
+                                    <div class="p-2 bg-Hijau rounded-full">
+                                        <img src="./assets/img/face-icon.png" alt="person" class="rounded-full">
+                                    </div>
+                                    <div class="w-2/3 pl-4">
+                                        <p class="font-semibold">Panca Mubala</p>
+                                        <p class="text-gray-600">Commissioners</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-footer bg-cover bg-center py-10">
+        <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between px-6 gap-32 items-center">
+            <!-- Left Section: Logo and Google Maps -->
+            <div class="items-center mb-4 lg:mb-0">
+                <!-- Logo -->
+                <img src="./assets/img/footer-logo.png" alt="Footer Logo" class="h-24 mb-10">
+    
+                <!-- Google Maps -->
+                <iframe class="rounded-l-lg rounded-br-lg rounded-tr-[15rem] w-full h-96 lg:w-[900px] lg:h-[300px] hover:shadow-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.5842265636693!2d104.7482453!3d-2.9351433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e3b75bdc914f96b%3A0x9d4d65f4475ff4ed!2sAFIE%20LAUNDRY%20WA%2008159514255!5e0!3m2!1sen!2sid!4v1712132082259!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <!-- Right Section: Contact Information -->
+            <div class="text-white" id="contact">
+                <div class="text-lg font-bold mb-5">Kontak</div>
+            
+                <div class="flex gap-2 items-center mb-5">
+                    <img src="./assets/img/phone-icon.png" alt="phone" class="h-6 w-6">
+                    <a href="tel:+6282269509828" class="mb-2 text-lg">+62 822 6950 9828</a>
+                </div>
+            
+                <div class="flex gap-2 items-center mb-5">
+                    <img src="./assets/img/email-icon.png" alt="email" class="h-6 w-6">
+                    <a href="mailto:pt.sejahteraperkasaenergi@gmail.com" class="mb-2 text-lg">pt.sejahteraperkasaenergi@gmail.com</a>
+                </div>
+            
+                <div class="flex gap-2 items-center mb-5">
+                    <img src="./assets/img/map-icon.png" alt="map" class="h-6 w-6">
+                    <p class="mb-2 text-lg">JL. Mayor Zurbi Busata I.r Sekolah, Kel. Sukajaya, Kec. Sukarani, Palembang, Sumatera Selatan.</p>
+                </div>
+            </div>            
+        </div>
+
+        <div class="mt-5">
+            <div class="border-t border-white w-11/12 mx-auto"></div>
+
+            <div class="flex items-center justify-center mt-5">
+                <img src="./assets/img/copyright-icon.png" alt="copyright" class="h-3 w-3">
+                <span class="ml-3 text-white text-sm">2024  PT. Sejahtera Perkasa Energi | All rights reserved</span>
+            </div>
+        </div>
+
+    </footer>
+</body>
+</html>
